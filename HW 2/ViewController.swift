@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  HW 2
 //
-//  Created by Alexey Efimov on 12.06.2018.
+//  Created by Alexey Efimov and Alexey Kanaev.
 //  Copyright © 2018 Alexey Efimov. All rights reserved.
 //
 
