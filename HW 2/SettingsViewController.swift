@@ -19,6 +19,10 @@ final class SettingsViewController: UIViewController {
     @IBOutlet var redSlider: UISlider!
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
+
+    var randomColor: UIColor!
+    unowned var delegate: SettingsViewControllerDelegate!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +45,12 @@ final class SettingsViewController: UIViewController {
             blueLabel.text = string(from: blueSlider)
         }
         
+    }
+
+    
+    @IBAction func doneButton(_ sender: UIButton) {
+        delegate.setColor(for: randomColor)
+        dismiss(animated: true)
     }
     
     private func setColor() {
