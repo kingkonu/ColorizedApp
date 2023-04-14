@@ -20,10 +20,8 @@ final class SettingsViewController: UIViewController {
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
 
-    var randomColor: UIColor!
     unowned var delegate: SettingsViewControllerDelegate!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         colorView.layer.cornerRadius = 15
@@ -49,7 +47,7 @@ final class SettingsViewController: UIViewController {
 
     
     @IBAction func doneButton(_ sender: UIButton) {
-        delegate.setColor(for: randomColor)
+        delegate.setColorView(for: colorView.backgroundColor ?? .red)
         dismiss(animated: true)
     }
     

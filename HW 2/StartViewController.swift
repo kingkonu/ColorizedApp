@@ -9,12 +9,10 @@
 import UIKit
 
 protocol SettingsViewControllerDelegate: AnyObject {
-    func setColor(for color: UIColor)
+    func setColorView(for color: UIColor)
 }
 
 final class StartViewController: UIViewController {
-
-    private var randomColor: UIColor!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +21,7 @@ final class StartViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let settingsVC = segue.destination as? SettingsViewController else { return }
-        settingsVC.randomColor = randomColor
+        settingsVC.delegate = self
     }
 
     @IBAction func settingsButton() {
@@ -34,7 +32,7 @@ final class StartViewController: UIViewController {
 
 // MARK: - SettingsViewControllerDelegate
 extension StartViewController: SettingsViewControllerDelegate {
-    func setColor(for color: UIColor) {
-        self.randomColor = view.backgroundColor
+    func setColorView(for color: UIColor) {
+        view.backgroundColor = color
     }
 }
